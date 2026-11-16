@@ -1,6 +1,36 @@
 function consecutiveSubstrings(string) {
-  // type your code here
+    const wordArray = []
+    const subArray = []
+    let currentIndex = ""
+    
+    for(const char of string){
+        currentIndex += char
+        wordArray.push(char)
+    }
+
+    if (wordArray.length === 0) {
+        console.log("Empty word array: ", wordArray)
+        return []
+    } else if(wordArray.length === 1) {
+        console.log(string)
+        return wordArray
+    }
+    
+    for(let i = 0; i < wordArray.length; i++){
+        currentIndex = wordArray[i]
+        subArray.push(wordArray[i])
+        for(let j = i + 1; j < wordArray.length; j++){
+            currentIndex = currentIndex + wordArray[j]
+            subArray.push(currentIndex)
+        }
+    }
+
+    console.log(subArray)
+
+    return subArray
 }
+
+consecutiveSubstrings("abcdefghijklmnopqrstuvwxyz")
 
 if (require.main === module) {
   // add your own tests in here

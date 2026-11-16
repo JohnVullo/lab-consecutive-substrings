@@ -1,2 +1,46 @@
 Please add your pseudocode to this file
 And a written explanation of your solution
+
+First the string needs to be made into an array to be parsable.  So a for loop
+is needed to iterate through the word, and take each letter and add it to an
+array.  Since the for loop goes through the entire array, the Big O time for this 
+is O(n).
+
+For consecutive substrings to be made, you need two arrays.  One that has the original
+word, and the other that stores the consecutive letters.  One for loop is needed as 
+an anchor point to hold the position in place.  A second loop is needed to parse through
+the rest of the array.  The first loop stores the first index.  Then the second loop
+adds the second index to the first in a variable.  Then when looped, the variable 
+moves to the next index, and adds the next index to the variable, that holds the first
+two indexes.  This is completed until the pivot index reaches the end of the array.
+Then the first loop moves its anchor to the next index, and the process starts again
+until the first loop moves to the end of the length of the word array.  
+
+Since we are using a nested loop, the Big O time is quadratic, O(n^2).
+
+Psuedocode:
+
+START 
+    Word is entered
+
+    FOR index is less than length of word
+        Add value of index to array
+    
+    IF array length = 0
+        return empty string
+
+    ELSE IF array length = 1
+        return letter
+
+    FOR anchor index is less than length of word array
+        store value of anchor index 
+        add value to new array
+
+        FOR pivot index is less than length of word array
+            store value of achor index plus value of pivot index
+
+            store value into new array
+    
+    return new array
+
+END
